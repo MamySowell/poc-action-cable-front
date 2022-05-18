@@ -18,7 +18,7 @@ quasar dev
 quasar build
 ```
 
-# pouchORM
+# ActionCable
 
 ## Fonctionnalités
 
