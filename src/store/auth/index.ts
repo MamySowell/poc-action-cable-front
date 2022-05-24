@@ -21,13 +21,14 @@ export const useAuthState = defineStore('auth', {
   actions: {
     signIn(): void {
       const validToken = '1234';
+      const room = 'scope_id';
       this.$cable.connection.connect(
-        `${process.env.WS_URL}?token=${validToken}`
+        `${process.env.WS_URL}?token=${validToken}&room=${room}`
       );
       this.signedIn = true;
       this.$cable.subscribe({
         channel: 'ConversationsChannel',
-        room: 'public',
+        room,
       });
     },
     signOut(): void {

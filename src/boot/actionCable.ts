@@ -2,7 +2,10 @@ import { boot } from 'quasar/wrappers';
 import ActionCableVue from 'actioncable-vue';
 
 interface Cable {
-  subscribe: (data: { channel: string; room: 'public' | 'private' }) => void;
+  subscribe: (
+    data: { channel: string; room: string },
+    channelName?: string
+  ) => void;
   connection: {
     connect: (connectionUrl?: string) => void;
     disconnect: () => void;

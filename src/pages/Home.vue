@@ -33,7 +33,8 @@ export default defineComponent({
       actionCableState.performMessage(
         'ConversationsChannel',
         'created',
-        `New message ${Date.now()}`
+        `New message ${Date.now()}`,
+        'scope_id'
       );
     };
     return {
