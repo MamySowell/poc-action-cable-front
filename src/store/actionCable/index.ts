@@ -27,8 +27,13 @@ export const useActionCableState = defineStore('actionCable', {
       this.messages.push({ channel, message });
       // TODO: dispatch messages action by channel
     },
-    performMessage(channel: string, action: string, message: string) {
-      this.$cable.perform({ channel, action, data: { message } });
+    performMessage(
+      channel: string,
+      action: string,
+      message: string,
+      room: string
+    ) {
+      this.$cable.perform({ channel, action, data: { message, room } });
     },
   },
 });
